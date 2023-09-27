@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href = "https://bootswatch.com/5/minty/bootstrap.min.css" />
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>Cargar Libro</legend>
+                <div class="form-group row">
+                   
+                    <div class="form-group">
+                        <label class="col-form-label mt-4" for="inputDefault">Titulo</label>
+                        <input type="text" class="form-control" placeholder="Ingrese el titulo" id="inputDefault">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label mt-4" for="inputDefault">ISBN</label>
+                        <input type="text" class="form-control" placeholder="Ingrese el isbn" id="inputDefault">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label mt-4" for="inputDefault">Ejemplares</label>
+                        <input type="text" class="form-control" placeholder="Ingrese numero de ejemplares" id="inputDefault">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleSelect1" class="form-label mt-4">Example select</label>
+                    <select name="idAutor">
+                        <option>Seleccionar Autor</option>
+                        <option th:each="autor : ${autores}"
+                                 th:value="${autor.id)"
+                                 th:text="${autor.nombre)"    
+                                 />
+                        
+                        
+                    </select>
+                </div>
+                <!-- <div class="form-group">
+                  <label for="exampleSelect2" class="form-label mt-4">Example multiple select</label>
+                  <select multiple="" class="form-select" id="exampleSelect2">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+                 <div class="form-group">
+                  <label for="exampleTextarea" class="form-label mt-4">Example textarea</label>
+                  <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="formFile" class="form-label mt-4">Default file input example</label>
+                  <input class="form-control" type="file" id="formFile">
+                </div>
+                <fieldset class="form-group">
+                  <legend class="mt-4">Radio buttons</legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                    <label class="form-check-label" for="optionsRadios1">
+                      Option one is this and that—be sure to include why it's great
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <label class="form-check-label" for="optionsRadios2">
+                      Option two can be something else and selecting it will deselect option one
+                    </label>
+                  </div>
+                  <div class="form-check disabled">
+                    <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled="">
+                    <label class="form-check-label" for="optionsRadios3">
+                      Option three is disabled
+                    </label>
+                  </div>
+                </fieldset>
+               <fieldset class="form-group">
+                  <legend class="mt-4">Checkboxes</legend>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Default checkbox
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked="">
+                    <label class="form-check-label" for="flexCheckChecked">
+                      Checked checkbox
+                    </label>
+                  </div>
+                </fieldset> comment -->
+
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </fieldset>
+        </form>
+    </body>
+</html>

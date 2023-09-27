@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Registro de autor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href = "https://bootswatch.com/5/minty/bootstrap.min.css" />
+    </head>
+    <body>
+        <header>
+            <div>
+                <h2> Cargar Autor aqui!</h2>
+            </div>
+        </header>
+
+        <div class="container">
+            <form action="/registro" method="POST">
+                <div class ="form-group">
+                    <input type="text" class="form-group" name="nombre" placeholder="nombre del autor">
+                </div>
+
+                <button type="submit" class="btn btn-secondary"> subir </button>
+
+                <button type="button" onclick="window.location.href = '/inicio'">Atrás</button>
+                <a th:href="@{/inicio}" class="btn btn-primary">Atrás</a>
+            </form>
+        </div>
+
+
+    </body>
+</html>

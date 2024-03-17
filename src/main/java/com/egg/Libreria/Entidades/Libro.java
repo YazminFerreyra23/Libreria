@@ -1,11 +1,13 @@
 package com.egg.Libreria.Entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
 
 /**
  *
@@ -78,6 +80,11 @@ public class Libro {
 
     public void setEditorial(Editorial editorial) {
         this.editorial = editorial;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "isbn=" + isbn + ", titulo=" + titulo + ", ejemplares=" + ejemplares + ", alta=" + alta + ", autor=" + autor + ", editorial=" + editorial + '}';
     }
 
 }

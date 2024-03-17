@@ -35,7 +35,7 @@ public class AutorService {
        
         return autorRepositorio.findAll();
     }
-    
+    @Transactional
     public void modificarAutor(String nombre, String id){
         
         Optional<Autor> respuesta =autorRepositorio.findById(id);
@@ -51,6 +51,11 @@ public class AutorService {
         
     }
 
+    public Autor getOne(String id){
+        
+        return autorRepositorio.getOne(id);
+    }
+    
     private void validar(String nombre) throws MiException{
         
         

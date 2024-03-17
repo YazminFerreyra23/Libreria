@@ -1,0 +1,12 @@
+#butoonInicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30%;
+}
+
+
+.titulo{
+    align-content: center;
+    justify-items: center;
+}

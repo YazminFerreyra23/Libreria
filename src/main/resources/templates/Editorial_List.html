@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head
+        th:replace="/fragments/head :: head">
+    </head>
+
+    <div>
+        <head >
+            <title>Lista Editorial</title>
+            <link rel="stylesheet" href="/editorial_lista.css">
+        </head>
+    </div>
+    <body>
+        <nav th:replace="/fragments/navbar :: nav"></nav>
+        
+        
+        <div class="conteiner m-5">
+            <h4 class="titulo">Tabla Editorial </h4>
+            <table <table class="table table-hover">
+
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="row">Id Editorial</th>
+                        <th scope="row">Nombre de la Editorial</th>
+                        <th scope="row" sec:authorize="hasRole('ADMIN')">Modificar Editorial</th>
+                    </tr>
+                </thead>
+                <tbody th:each="editorial: ${editoriales}">
+                    <tr class="table-secondary">
+                        <th scope="row" th:text="${editorial.id}"></th>
+                        <td th:text="${editorial.nombre}"></td>
+                        <td sec:authorize="hasRole('ADMIN')">
+                            <a  th:href="@{/editorial/modificar/__${editorial.id}__}"> <i class="fas fa-feather-alt"></i> Modificar </a>
+                        </td>
+                    <tr>
+            </table>
+
+        </div>
+
+
+        <a th:href="@{/}" id="butoonInicio" class="btn btn-secondary my-2" >Inicio</a>
+
+
+
+        <div th:if="${exito}!=null" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+            <div class="card-body">
+                <h5 class="card-title">Exito ð</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+        <div th:if="${error}!=null" class="card text-white bg-danger mb-3 mensajeError" >
+            <div class="card-body">
+                <h5 class="card-title">Error ð</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+        <ul th:replace="/fragments/pagination :: ul"></ul>
+    </body>
+</html>

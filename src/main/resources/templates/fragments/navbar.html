@@ -1,0 +1,99 @@
+
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark" style="font-family:  initial ">
+      <style th:replace="/fragments/style_img :: style"></style>
+    <div class="container-fluid">
+        <div class="centered" >
+            <span class="number"></span>
+            <img height="150" src="/Rose.png">
+        </div>
+        <a class="navbar-brand text-black" th:href="@{/}">INICIO</a>
+        <a class="navbar-brand " sec:authorize="hasRole('ADMIN')" th:href="@{/inicio}">Dashboard</a>
+
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+
+                <li class="nav-item">
+                    <a sec:authorize="hasRole('ADMIN')"class="nav-link active " href="/autor/registrar">Registrar Autor
+                    <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a sec:authorize="hasRole('ADMIN')" class="nav-link text-black " href="/libro/registrar">Cargar Libro</a>
+                </li>
+
+                <li class="nav-item">
+                    <a sec:authorize="hasRole('ADMIN')" class="nav-link  text-black" href="/editorial/registrar">Cargar Editorial</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a sec:authorize="hasRole('ADMIN')" class="nav-link  text-black" href="/admin/usuarios">Modificar Usuario</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-black" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Perfil</a>
+               
+                <div class="dropdown-menu">
+                        
+                <div th:if="${session.usuariosession != null}" class="centereds">
+                    <a th:if="${session.usuariosession.imagen != null}" class="d-flex align-items-center">
+                    <img class="logo"  th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" >
+                    </a>
+                </div>
+                        
+                        
+                    <a th:if="${session.usuariosession == null}" class="dropdown-item" href="/login">Login</a>
+                    <a th:if="${session.usuariosession == null}" class="dropdown-item" href="/registrar">Registrar</a>
+                    <a th:if="${session.usuariosession != null}" class="dropdown-item" href="/perfil">EDITAR PERFIL</a>
+                    <a th:if="${session.usuariosession != null}" class="dropdown-item" href="/logout">CERRAR SESIÓN</a>
+                </div>
+                </li>
+                
+            </ul>
+
+            <form class="d-flex" method="POST" action="/buscarPorTitulo">
+                <input class="form-control me-sm-2" type="search" placeholder="Buscar Libro">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            
+        </div>
+    </div>
+</nav>
+
+        <header class="header">
+            <section class="contenedorMain">
+                <div class="tituloBiblioteca">
+                    <a class="navbar-brand" >BIBLIOTECA EGG</a>
+                </div>
+                <div class="container contenedorLibros">
+                    <p class="tituloLibros" th:if="${session.usuariosession != null}" th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombre} "></p>
+                </div>
+                <div class="container">
+                    <a th:if="${session.usuariosession.imagen != null}" class="d-flex align-items-center">
+                        <img class="logo"  th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" >
+                    </a>
+                </div>
+                <div class="bg-circle-1 bg-circle"></div>
+                <div class="bg-circle-2 bg-circle"></div>
+                <div class="bg-circle-3 bg-circle"></div>
+                <div class="bg-circle-4 bg-circle"></div>
+            </section>
+        </header>
+
+        <footer class="text-muted py-5">
+            <div class="containerFooter">
+                <p class="mb-1">Album example is &copy; Bootstrap,<br>but please download and customize it for yourself!</p>
+                <p class="mb-0">New to Bootstrap? <a href="/"><br>Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+                <p class="float-end mb-1">
+                    <a href="#" style="text-decoration:none"><span>⬆️</span> Back to top</a>
+                </p>
+            </div>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</nav> 

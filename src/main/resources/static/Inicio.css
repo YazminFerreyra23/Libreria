@@ -1,0 +1,53 @@
+#section{
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#imagenPerfi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    margin-top: 5%;
+    object-fit: cover;
+}
+
+.logoIndex{
+    align-items: center!important;
+    display: flex;
+    justify-content: center;
+}
+
+
+#logoYazmin{
+    height: 35vh;
+}
+
+#logoIndex{
+    margin: 5%;
+    border-radius: 50%;
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.saludo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.centered{
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+}
+.conteiner1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,8 +1,9 @@
 package com.egg.Libreria.Entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -16,8 +17,8 @@ public class Editorial {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
-
     private String id;
+    
     private String nombre;
 
     public Editorial() {

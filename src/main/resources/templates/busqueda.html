@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head
+        th:replace="/fragments/head :: head">
+    </head>
+    <body>
+        <nav th:replace="/fragments/navbar :: nav"></nav>
+        
+        
+        <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col" th:each="libro : ${titulo}">
+                
+                <div class="card shadow-sm">
+                    <a th:href="@{/libro/__${titulo.id}__}" class="no-subrayado">
+                
+                        <div class="card-body">
+                            <div class="content">
+                                <table class="table">
+                              
+                                    <tr>
+                                        <th th:text="'Titulo: ' +  ${libro.titulo}">Titulo:</th>
+                                    </tr>
+                                  
+                                </table>
+                
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>

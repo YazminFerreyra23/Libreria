@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head
+        th:replace="/fragments/head :: head">
+    </head>
+    <body>
+        <style th:replace="/fragments/style :: style"></style>
+
+        <nav th:replace="/fragments/navbar :: nav"></nav>
+
+
+
+        <div class="container">
+            <form class="formulario" th:action="@{/autor/modificar/__${autor.id}__}" method="POST">
+
+                <input hidden th:value="${id}" name="id">
+
+                <div class="form-group my-3">
+
+                    <label class="mb-2" >Modificar Autor</label> 
+
+                    <input th:value="${autor.nombre}" type="text" class="form-control" name="nombre">
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-3 botones">Actualizar</button>
+
+            </form>
+        </div>
+
+
+        <div th:if="${exito}!=null" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+            <div class="card-body">
+                <h5 class="card-title">Exito ð</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+        <div th:if="${error}!=null" class="card text-white bg-danger mb-3 mensajeError" >
+            <div class="card-body">
+                <h5 class="card-title">Error ð</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+
+        <ul th:replace="/fragments/pagination :: ul"></ul>
+
+    </body>
+</html>
